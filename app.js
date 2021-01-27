@@ -33,7 +33,11 @@ const itemsSchema = new mongoose.Schema({
 });
 const Item = mongoose.model('item', itemsSchema);
 
-const defaultItems = [];
+const item1 = new Item({
+  name: 'homework',
+});
+
+const defaultItems = [item1];
 
 const listSchema = {
   name: String,

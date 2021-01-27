@@ -37,6 +37,7 @@ const item1 = new Item({
   name: 'homework',
 });
 
+
 const defaultItems = [item1];
 
 const listSchema = {
@@ -51,21 +52,11 @@ app.get('/about', function (req, res) {
 
 app.get('/', function (req, res) {
   Item.find({}, (err, foundItems) => {
-    if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('Succesfully inserted');
-        }
-      });
-      res.redirect('/');
-    } else {
-      res.render('list', {
+         res.render('list', {
         listTitle: 'Today',
         newListItems: foundItems,
       });
-    }
+  
   });
 });
 

@@ -19,7 +19,6 @@ mongoose.connect(
 );
 
 
-console.log()
 
 const app = express();
 
@@ -46,7 +45,7 @@ const listSchema = {
 };
 
 const List = mongoose.model('List', listSchema);
-app.get('/about', function (req, res) {
+app.get('/about', (req, res) => {
   res.render('about');
 });
 
@@ -83,7 +82,7 @@ app.get('/:customListName', (req, res) => {
   });
 });
 
-app.post('/', function (req, res) {
+app.post('/', (req, res) => {
   const itemName = req.body.newItem;
   const listName = req.body.list;
 
@@ -123,6 +122,6 @@ app.post('/delete', (req, res) => {
   }
 });
 
-app.listen(3000, function () {
-  console.log('Server started on port 3000');
+app.listen(4000, function () {
+  console.log('Server started on port 4000');
 });
